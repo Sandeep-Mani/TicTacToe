@@ -138,24 +138,25 @@ function minmax(newBoard, player) {
         newBoard[availableSpots[i]] = move.index;
         moves.push(move)
     }
-
     var bestMove;
-    for (let i = 0; i < moves.length; i++) {
-        if (player == aiPlayer) {
-            let bestScore = -10000
+    if (player == aiPlayer) {
+        let bestScore = -10000
+        for (let i = 0; i < moves.length; i++) {
             if (moves[i].score > bestScore) {
                 bestScore = moves[i].score;
                 bestMove = i;
             }
-
-        } else {
-            let bestScore = 10000
+        }
+    } else {
+        let bestScore = 10000
+        for (let i = 0; i < moves.length; i++) {
             if (moves[i].score < bestScore) {
                 bestScore = moves[i].score;
                 bestMove = i;
             }
-
         }
     }
     return moves[bestMove];
 }
+
+// document.addEventListener('onload', startGame)
